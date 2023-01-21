@@ -55,3 +55,22 @@ def stations_by_river(stations):
         rivers_to_stations[x.river] = station
     return rivers_to_stations
 
+def rivers_by_station_number(stations, N):
+    '''
+    Function returns the N with the greatest number of monitoring stations
+    '''
+    number_of_stations = []
+    river_station_dictionary = stations_by_river(stations)
+    for (river_name, station_list) in river_station_dictionary.items():
+        number_of_stations.append((river_name, len(station_list)))
+    sorted_number_of_stations = sorted_by_key(number_of_stations, 1, reverse = True)
+    top_rivers = []
+    counter = 0
+    final_entry = None
+    while counter < len(sorted_number_of_stations):
+        if counter >= N and sorted_number_of_stations[counter][1] != final_entry:
+            break
+        top_rivers.append(sorted_number_of_stations[counter])
+        final_entry = sorted_number_of_stations[counter][1]
+        counter += 1
+    return(top_rivers)
