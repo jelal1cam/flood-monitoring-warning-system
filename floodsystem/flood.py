@@ -18,3 +18,15 @@ def stations_level_over_threshold(stations, tol):
     
     return sorted_list
 
+def stations_highest_rel_level(stations, N):
+    '''
+    Function that returns a list of the N stations (objects) at which the water level, relative to the typical range, is highest. The returned list is sorted by descending order by relative level.
+    '''
+    at_risk = []
+    for x in stations:
+        if x.relative_water_level() is not None:
+            at_risk.append((x.name, x.relative_water_level()))
+    
+    sorted_at_risk = sorted_by_key(at_risk, 1, True)
+     
+    return sorted_at_risk[:N]
