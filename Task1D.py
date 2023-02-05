@@ -1,5 +1,5 @@
 from floodsystem.stationdata import build_station_list
-from floodsystem.geo import rivers_with_stations, stations_by_river
+from floodsystem.geo import rivers_with_station, stations_by_river
 
 def run():
     '''
@@ -7,7 +7,7 @@ def run():
     Use of geo.stations_by_river to print the names of the stations located on the River Aire, River Cam and the River Thames.
     '''
     station_list = build_station_list()
-    rivers_stations = rivers_with_stations(station_list)
+    rivers_stations = rivers_with_station(station_list)
     print(str(len(rivers_stations)) + " stations.")
     print("First 10 - " + str(sorted(rivers_stations)[:10]))
 

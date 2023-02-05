@@ -35,7 +35,7 @@ def stations_within_radius(stations, centre, r):
 
     return within_radius
 
-def rivers_with_stations(stations):
+def rivers_with_station(stations):
     '''
     Function that, given a list of station objects, returns a container (list/tuple/set) with the names of the rivers with a monitoring station.
     '''
