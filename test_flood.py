@@ -31,7 +31,7 @@ def test_stations_level_over_threshold():
 
     assert stations_level_over_threshold(stations, 0.5) == [(station3, 0.7), (station2, 0.6)]
     
-def stations_highest_rel_level():
+def test_stations_highest_rel_level():
     station1 = MonitoringStation(station_id='test-s-id1',
                                      measure_id='test-m-id1',
                                      label='some station 1',
@@ -59,13 +59,13 @@ def stations_highest_rel_level():
     station3.latest_level = 0.7
     stations = [station1, station2, station3]
 
-    assert stations_highest_rel_level(stations,3) == [station3, station2, station1]
-    assert stations_highest_rel_level(stations,2) == [station3, station2]
-    assert stations_highest_rel_level(stations,1) == [station3]
-
+    assert stations_highest_rel_level(stations, 3) == [(station3.name, station3.relative_water_level()), (station2.name, station2.relative_water_level()), (station1.name, station1.relative_water_level())]
+    assert stations_highest_rel_level(stations, 2) == [(station3.name, station3.relative_water_level()), (station2.name, station2.relative_water_level())]
+    assert stations_highest_rel_level(stations, 1) == [(station3.name, station3.relative_water_level())]
+    
     station1.latest_level = 0.5
     station2.latest_level = 0.6
     station3.latest_level = 0.2
 
-    assert stations_highest_rel_level(stations,3) == [station2, station1, station3]
-    assert stations_highest_rel_level(stations,2) == [station2, station1]
+    assert stations_highest_rel_level(stations, 3) == [(station2.name, station2.relative_water_level()), (station1.name, station1.relative_water_level()), (station3.name, station3.relative_water_level())]
+    assert stations_highest_rel_level(stations, 2) == [(station2.name, station2.relative_water_level()), (station1.name, station1.relative_water_level())]

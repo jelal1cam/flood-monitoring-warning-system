@@ -7,13 +7,20 @@ from floodsystem.stationdata import build_station_list, update_water_levels
 
 
 def test_build_station_list():
-    """Test building list of stations"""
+    """
+    Test building list of stations
+    
+    """
     station_list = build_station_list()
     assert len(station_list) > 0
 
 
 def test_update_level():
-    """Test update to latest water level"""
+    """
+    
+    Test update to latest water level
+    
+    """
 
     # Build list of stations
     stations = build_station_list()
