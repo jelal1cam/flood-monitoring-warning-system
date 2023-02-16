@@ -1,3 +1,4 @@
+
 from floodsystem.utils import sorted_by_key
 
 def stations_level_over_threshold(stations, tol):
@@ -24,7 +25,7 @@ def stations_highest_rel_level(stations, N):
     at_risk = []
     for x in stations:
         if x.relative_water_level() is not None:
-            at_risk.append((x, x.relative_water_level()))
+            at_risk.append((x.name, x.relative_water_level()))
     
     sorted_at_risk = sorted_by_key(at_risk, 1, True)
      

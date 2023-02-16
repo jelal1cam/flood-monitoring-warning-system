@@ -3,6 +3,7 @@ README.md
 setup.cfg
 setup.py
 floodsystem/datafetcher.py
+floodsystem/flood.py
 floodsystem/geo.py
 floodsystem/station.py
 floodsystem/stationdata.py
