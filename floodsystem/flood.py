@@ -27,5 +27,7 @@ def stations_highest_rel_level(stations, N):
             at_risk.append((x, x.relative_water_level()))
     
     sorted_at_risk = sorted_by_key(at_risk, 1, True)
-     
-    return sorted_at_risk[:N]
+    
+    final = [x[0] for x in sorted_at_risk]
+    
+    return final[:N]
