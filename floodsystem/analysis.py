@@ -7,6 +7,7 @@ def polyfit(dates, levels, p):
     x = date2num(dates)
     d0 = x[0]
     p_coeff = np.polyfit(x - d0, levels, p)
+    gradient = np.polyfit(x-d0, levels, 1)
     poly = np.poly1d(p_coeff)
 
     return poly, d0 

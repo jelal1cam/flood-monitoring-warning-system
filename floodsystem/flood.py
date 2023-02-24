@@ -1,4 +1,8 @@
 from floodsystem.utils import sorted_by_key
+try:
+    from .analysis import polyfit  # noqa
+except ImportError:
+    from analysis import polyfit
 
 def stations_level_over_threshold(stations, tol):
     '''
@@ -31,3 +35,16 @@ def stations_highest_rel_level(stations, N):
     final = [x[0] for x in sorted_at_risk]
     
     return final[:N]
+
+def risk_allocation_town(stations, N):
+    risk_level = []
+    for town in stations:
+        risk = "Low"
+        if town.relative_water_level() > 1:
+            risk = "Severe"
+        elif x.relative_water_level()<1 and x.relative_water_level()>0.75 and gradient>0:
+            risk = "high"
+        elif x.relative_water_level()<1 and x.relative_water_level()>0.75 and gradient<0:
+            risk = "moderate"
+        risk_level.append((town, risk))
+    return risk_level

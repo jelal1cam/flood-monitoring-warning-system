@@ -8,25 +8,23 @@ from floodsystem.flood import stations_highest_rel_level
 from floodsystem.plot import plot_water_level_with_fit
 
 def run():
-
     stations = build_station_list()
     update_water_levels(stations)
     at_risk_stations = stations_highest_rel_level(stations, 5)
 
     for station in at_risk_stations:
-        dates, levels = fetch_measure_levels(station.measure_id,
-                                             dt=datetime.timedelta(days=2))
+        dates, levels = fetch_measure_levels(station.measure_id,dt=datetime.timedelta(days=2))
 
         # plot real data
         date_nums = date2num(dates) - date2num(dates[0])
-        plt.plot(date_nums, levels, color="orange")
+        plt.plot(date_nums, levels, color="black")
 
         # plot line of best fit
         plot_water_level_with_fit(station, dates, levels, 4)
 
         # plot high/low
-        plt.axhline(station.typical_range[0], linestyle = "-", c ="red")
-        plt.axhline(station.typical_range[1], linestyle = "-", c = "yellow")
+        plt.axhline(station.typical_range[0], linestyle="dashed", color="green")
+        plt.axhline(station.typical_range[1], linestyle="dashed", color="red")
 
         plt.legend(("Real values", "Best fit", "Typical low", "Typical high"))
 

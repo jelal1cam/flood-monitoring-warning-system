@@ -27,9 +27,7 @@ def plot_water_levels(station, dates, levels):
 
 
 def plot_water_level_with_fit(station, dates, levels, p):
-    """Plots a graph of dates against time on the current figure
-    Note that this DOES NOT show the figure - must call plt.plot() after this function
-    This allows for data to be added to the plot after this function is called"""
+    """Plots a graph of dates against time on the current figure"""
     today = date2num(dates[0])
     poly, d0 = polyfit(dates, levels, p)
 
