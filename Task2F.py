@@ -28,6 +28,7 @@ def run():
         plt.legend(("Real values", "Best fit", "Typical low", "Typical high"))
 
         plt.show()
+        
 
 
 
