@@ -40,3 +40,4 @@ def plot_water_level_with_fit(station, dates, levels, p):
     plt.xlim(-2, 0)
     plt.xlabel("Days since last reading")
     plt.ylabel("water level (m)")
+    

@@ -19,10 +19,9 @@ def run():
         date_nums = date2num(dates) - date2num(dates[0])
         plt.plot(date_nums, levels, color="black")
 
-        # plot line of best fit
+        #best fit
         plot_water_level_with_fit(station, dates, levels, 4)
-
-        # plot high/low
+        # plot high and low typical range
         plt.axhline(station.typical_range[0], linestyle="dashed", color="green")
         plt.axhline(station.typical_range[1], linestyle="dashed", color="red")
 

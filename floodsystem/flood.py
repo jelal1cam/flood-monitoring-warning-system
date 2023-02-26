@@ -1,5 +1,8 @@
 import numpy as np
-from floodsystem.utils import sorted_by_key
+try:
+    from .utils import sorted_by_key  # noqa
+except ImportError:
+    from utils import sorted_by_key
 try:
     from .analysis import polyfit  # noqa
 except ImportError:
@@ -47,11 +50,11 @@ def risk_allocation_town(stations, N):
         gradient = np.gradient(poly, 0)
         if station.relative_water_level() > 1:
             risk_level_severe.append(station.town)
-        elif station.relative_water_level()<1 and station.relative_water_level()>0.75 and gradient>0:
+        elif station.relative_water_level()<1 and station.relative_water_level()>0.8 and gradient>0:
             risk_level_high.append(station.town)
-        elif station.relative_water_level()<1 and station.relative_water_level()>0.75 and gradient<0:
+        elif station.relative_water_level()<1 and station.relative_water_level()>0.8 and gradient<0:
             risk_level_moderate.append(station.town)
-        elif station.relative_water_level()<0.75:
+        elif station.relative_water_level()<0.8:
             risk_level_moderate.low(station.town)
             
     return risk_level_severe, risk_level_high, risk_level_moderate, risk_level_low
