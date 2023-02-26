@@ -1,7 +1,6 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.stationdata import update_water_levels
 from floodsystem.datafetcher import fetch_measure_levels
-from floodsystem.flood import risk_allocation_town
 from floodsystem.analysis import polyfit
 import numpy as np
 from matplotlib.dates import date2num
