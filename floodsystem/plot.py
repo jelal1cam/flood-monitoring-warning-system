@@ -29,7 +29,7 @@ def plot_water_levels(station, dates, levels):
 def plot_water_level_with_fit(station, dates, levels, p):
     """Plots a graph of dates against time on the current figure"""
     today = date2num(dates[0])
-    poly, d0 = polyfit(dates, levels, p)
+    poly, p_coeff, d0 = polyfit(dates, levels, p)
 
     xs = np.linspace(today - 2, today, 1000)
     ys = poly(xs - d0)

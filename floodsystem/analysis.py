@@ -9,6 +9,11 @@ def polyfit(dates, levels, p):
     p_coeff = np.polyfit(x - d0, levels, p)
     poly = np.poly1d(p_coeff)
 
-    return poly, d0 
+    return poly, p_coeff, d0
+"""def polyfit(dates,levels,p):
+    x = date2num(dates)
+    x = x- min(x)
+    y = levels
+    return np.polyfit(x,y,p)"""
 
 
