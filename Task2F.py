@@ -15,15 +15,15 @@ def run():
     for station in at_risk_stations:
         dates, levels = fetch_measure_levels(station.measure_id,dt=datetime.timedelta(days=2))
 
-        # plot real data
+        # plot real water levels
         date_nums = date2num(dates) - date2num(dates[0])
-        plt.plot(date_nums, levels, color="black")
+        plt.plot(date_nums, levels, c="black")
 
-        #best fit
+        #plots the line best fit
         plot_water_level_with_fit(station, dates, levels, 4)
         # plot high and low typical range
-        plt.axhline(station.typical_range[0], linestyle="dashed", color="green")
-        plt.axhline(station.typical_range[1], linestyle="dashed", color="red")
+        plt.axhline(station.typical_range[0], linestyle="dashed", c="green")
+        plt.axhline(station.typical_range[1], linestyle="dashed", c="red")
 
         plt.legend(("Real values", "Best fit", "Typical low", "Typical high"))
 

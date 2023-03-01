@@ -6,7 +6,7 @@ from floodsystem.plot import plot_water_levels
 from floodsystem.flood import stations_highest_rel_level
 from floodsystem.datafetcher import fetch_measure_levels
 
-def run():
+def run():#plots the water level graphs for the 5 stations with the greatest rel water level
     stations = build_station_list()
     update_water_levels(stations)
     highest_rel_water_level_stations = stations_highest_rel_level(stations, 5)
